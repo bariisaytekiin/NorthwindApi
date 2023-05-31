@@ -1,0 +1,83 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Çalışan Ekle</h2>
+                </div>
+                <div class="card-body">
+                    <div>
+                         <form>
+                            <div class="mb-2">
+                                <label>Çalışan Ad:</label>
+                                <input type="text" class="form-control" id="firstname" />
+                            </div>
+                            <div class="mb-2">
+                                <label>Çalışan Soyad:</label>
+                                <input type="text" class="form-control" id="lastname" />
+                            </div>
+                            <div class="mb-2">
+                                <label>Ünvan:</label>
+                                <input type="text" class="form-control" id="title" />
+                            </div>
+                            <div class="mb-2">
+                                <label>Ünvan 2:</label>
+                                <input type="text" class="form-control" id="titleOfCourtesy" />
+                            </div>
+                            <button class="btn btn-primary" id="btnSave">Kaydet</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9 ">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Çalışan Listesi</h2>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex justify-content-center">
+                        <div>
+                            <a class="btn btn-secondary" href="https://localhost:7261/api/employee/GetEmployeesOrderBy" id="orderBy">Sırala (A-Z)</a>
+                        </div>
+                        <div>
+                            <a class="btn btn-secondary" href="https://localhost:7261/api/employee/getemployeesorderbydesc" id="orderByDesc">Sırala (Z-A)</a>
+                        </div>
+                        <div>
+                            <a class="btn btn-secondary" id="report">Satış Raporu</a>
+                        </div>
+                        <div>
+                            <a class="btn btn-secondary" id="random">Rastgele Çalışan</a>
+                        </div>
+                    </div>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>FirstName</th>
+                                <th>LastName</th>
+                                <th>Title</th>
+                                <th>Title Of Courtesy</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="employeeTable"></tbody>
+                        <tbody id="employeeTableOrderBy"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts{
+    <sript src="/js/employee.js"></sript>
+}
+<!--Jquery tanımlamak için programa sağ tıkıyoruz add sonra cliend-side libraryden jquery ekliyoruz-->
